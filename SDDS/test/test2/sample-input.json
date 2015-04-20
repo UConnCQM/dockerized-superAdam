@@ -1,0 +1,105 @@
+{
+  "task": {
+    "method": {
+      "description": "simulations using Stochastic Discrete Dynamical System (SDDS)",
+      "id": "SDDS",
+      "type": "simulation",
+      "arguments": [
+        {
+          "numberofSimulations": 500,
+          "numberofTimeSteps": 25,
+          "initialState": [2, 3, 1, 0],
+          "propensities": [
+            {
+              "id": "x1", 
+              "activation": 0.3,
+              "degradation": 0.7
+            },
+            {
+              "id": "x2",
+              "activation": 0.7,
+              "degradation": 0.3
+            },
+            {
+              "id": "x3",
+              "activation": 0.9,
+              "degradation": 0.9
+            },
+	    	{
+              "id": "x4",
+              "activation": 0.9,
+              "degradation": 0.9
+            }
+            ]
+          }
+          ]
+        },
+      "input": [
+        {
+          "type": "model",
+          "fieldCardinality": 5,
+          "numberVariables": 4,
+          "variables": [
+            {
+              "name": "CI",
+              "id": "x1",
+              "states": ["0","1","2"]
+            },
+            {
+              "name": "CRO",
+              "id": "x2",
+              "states": ["0","1","2","3"]
+            },
+            {
+              "name": "CII",
+              "id": "x3",
+              "states": ["0","1"]
+            },
+	    	{
+	      "name": "N",
+              "id": "x4",
+              "states": ["0","1"]
+	    	}
+          ],
+          "updateRules": [
+            {
+              "functions": [
+                {
+                  "inputVariables": ["x1","x2","x3"],
+                  "polynomialFunction": "1+x1^4+4*x2^4+x1*x2^4+x1^2*x2^4+x1^3*x2^4+x1^4*x2^4+x2^4*x3^4+4*x1*x2^4*x3^4+4*x1^2*x2^4*x3^4+4*x1^3*x2^4*x3^4+4*x1^4*x2^4*x3^4"
+                }
+              ],
+              "target": "x1"
+            },
+            {
+            "functions": [
+              {
+                "inputVariables": ["x1","x2"],
+                "polynomialFunction": "1+4*x1+4*x1^2+4*x1^3+3*x1^4+2*x2+3*x1*x2+3*x1^2*x2+3*x1^3*x2+x1^4*x2+x2^2+3*x2^3+x1*x2^3+x1^2*x2^3+x1^3*x2^3+2*x1^4*x2^3"
+              }
+            ],
+            "target": "x2"
+          },
+          {
+            "functions": [
+              {
+                "inputVariables": ["x1","x2","x4"],
+                "polynomialFunction": "x4^4+4*x1*x4^4+4*x1^2*x4^4+4*x1^3*x4^4+3*x1^4*x4^4+x2*x4^4+4*x1*x2*x4^4+4*x1^2*x2*x4^4+4*x1^3*x2*x4^4+3*x1^4*x2*x4^4+2*x2^3*x4^4+3*x1*x2^3*x4^4+3*x1^2*x2^3*x4^4+3*x1^3*x2^3*x4^4+x1^4*x2^3*x4^4+2*x2^4*x4^4+3*x1*x2^4*x4^4+3*x1^2*x2^4*x4^4+3*x1^3*x2^4*x4^4+x1^4*x2^4*x4^4"
+              }
+            ],
+            "target": "x3"
+          },
+	  {
+            "functions": [
+              {
+                "inputVariables": ["x1","x2"],
+                "polynomialFunction": "1+4*x1^4+4*x2+x1^4*x2+4*x2^2+x1^4*x2^2+4*x2^3+x1^4*x2^3+3*x2^4+2*x1^4*x2^4"
+              }
+            ],
+            "target": "x4"
+          }
+        ]
+      }
+    ]
+  }
+}

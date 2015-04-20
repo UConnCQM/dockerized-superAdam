@@ -1,0 +1,124 @@
+{
+  "task": {
+    "method": {
+      "description": "simulations using Stochastic Discrete Dynamical System (SDDS)",
+      "id": "SDDS",
+      "type": "simulation",
+      "arguments": [
+        {
+          "numberofSimulations": 1,
+          "numberofTimeSteps": 10,
+          "initialState": [2, 2, 0, 0, 2],
+          "propensities": [
+            {
+              "id": "x1", 
+              "activation": 1,
+              "degradation": 1
+            },
+            {
+              "id": "x2",
+              "activation": 1,
+              "degradation": 1
+            },
+            {
+              "id": "x3",
+              "activation": 1,
+              "degradation": 1
+            },
+	    	{
+              "id": "x4",
+              "activation": 1,
+              "degradation": 1
+            },
+	    	{
+              "id": "x5",
+              "activation": 1,
+              "degradation": 1
+            }
+            ]
+          }
+          ]
+        },
+      "input": [
+        {
+          "type": "model",
+          "fieldCardinality": 3,
+          "numberVariables": 5,
+          "variables": [
+            {
+              "name": "LIP",
+              "id": "x1",
+              "states": ["0","1","2"]
+            },
+	    	{
+              "name": "TfR1",
+              "id": "x2",
+              "states": ["0","1","2"]
+            },
+	    	{
+              "name": "Fpn",
+              "id": "x3",
+              "states": ["0","1","2"]
+            },
+	    	{
+              "name": "Ft",
+              "id": "x4",
+              "states": ["0","1","2"]
+            },
+	    	{
+              "name": "IRPs",
+              "id": "x5",
+              "states": ["0","1","2"]
+            }
+          ],
+          "updateRules": [
+            {
+              "functions": [
+                {
+                  "inputVariables": ["x1","x2","x3","x4"],
+                  "polynomialFunction": "x1+x2^2+2*x1*x2^2+x1^2*x2^2+2*x2*x3+x1*x2*x3+x2^2*x3+2*x1*x2^2*x3+2*x1^2*x2^2*x3+2*x1^2*x3^2+2*x2*x3^2+x1*x2*x3^2+x1^2*x2*x3^2+x4+2*x1^2*x4+2*x2^2*x4+x1*x2^2*x4+2*x1^2*x2^2*x4+2*x2*x3*x4+x1^2*x2*x3*x4+2*x1*x2^2*x3*x4+2*x1^2*x2^2*x3*x4+2*x3^2*x4+2*x1*x3^2*x4+x1*x2*x3^2*x4+x1^2*x2*x3^2*x4+2*x4^2+2*x1*x4^2+2*x1^2*x4^2+x2^2*x4^2+x2*x3*x4^2+x1*x2*x3*x4^2+x1^2*x2*x3*x4^2+x1*x2^2*x3*x4^2+x1^2*x2^2*x3*x4^2+x3^2*x4^2+2*x1*x3^2*x4^2+2*x1^2*x3^2*x4^2+2*x1*x2*x3^2*x4^2+2*x1^2*x2*x3^2*x4^2"
+                }
+              ],
+              "target": "x1"
+            },
+            {
+            "functions": [
+              {
+                "inputVariables": ["x2","x5"],
+                "polynomialFunction": "x2+2*x2^2+x2^2*x5+x5^2+2*x2*x5^2"
+              }
+            ],
+            "target": "x2"
+          },
+          {
+            "functions": [
+              {
+                "inputVariables": ["x3","x5"],
+                "polynomialFunction": "1+x3^2+2*x5+x3*x5+2*x3^2*x5+x5^2+2*x3*x5^2"
+              }
+            ],
+            "target": "x3"
+          },
+	  {
+            "functions": [
+              {
+                "inputVariables": ["x4","x5"],
+                "polynomialFunction": "1+x4^2+2*x5+x4*x5+2*x4^2*x5+x5^2+2*x4*x5^2"
+              }
+            ],
+            "target": "x4"
+          },
+	  {
+            "functions": [
+              {
+                "inputVariables": ["x1","x5"],
+                "polynomialFunction": "1+2*x1+x1^2+x1*x5+2*x1^2*x5+x5^2+2*x1*x5^2"
+              }
+            ],
+            "target": "x5"
+          }
+        ]
+      }
+    ]
+  }
+}

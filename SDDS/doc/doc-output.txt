@@ -1,0 +1,12 @@
+********************************************************************************
+Name: Documentation for  JSON output of simulation using SDDS
+Author: Seda Arat
+Date: February 16, 2015
+********************************************************************************
+
+SDDS returns an output file containing averageTrajectory of each variable in the system; the first number is the state of the variable at time=0. This information is obtained from initialState in the input file. The following number is the average state of the variable at time=1. The very last number in the averageTrajectory array is the average state of the variable at time = numberofTimeSteps, which is specified in the input file.
+
+The output file also includes some information in the input file in case we need them for debugging or using this simulation results in another program such as SDDS_control such as fieldCardinality, initialState, numberVariables, numberofSimulations, numberofTimeSteps.
+
+type: either “stochastic simulation” or “deterministic simulation” based on the propensities in the input.json file.
+

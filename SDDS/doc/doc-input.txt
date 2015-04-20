@@ -1,0 +1,17 @@
+********************************************************************************
+Name: Documentation for  JSON input of simulation using SDDS
+Author: Seda Arat
+Date: February 16, 2015
+********************************************************************************
+
+SDDS needs a model as an input which includes the following information: fieldCardinality, numberVariables, variables and updateRules, which must include polynomialFunction or transitionTable.
+
+SDDS is a simulation method with some arguments such as numberofSimulations, numberofTimeSteps, initialState and propensities.
+
+“task”: simulating the model deterministically or stochastically
+
+“method”: Polynomial Dynamical System (PDS) for deterministic simulations and Stochastic Discrete Dynamical System (SDDS) for stochastic simulations
+
+“id”: SDDS - because PDS is a special case of SDDS.
+
+“arguments”: numberofSimulations and numberofTimeSteps are positive numbers. initialState is an array with length numberVariables. propensities is a hash table including an activation and a degradation propensity for each variable in the system. These propensities are numbers in [0, 1]. If all the propensities are 1, then it is a deterministic simulation, otherwise, it is a stochastic simulation.

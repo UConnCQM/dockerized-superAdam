@@ -1,0 +1,107 @@
+{
+  "task": {
+    "method": {
+      "description": "simulations using Stochastic Discrete Dynamical System (SDDS)",
+      "id": "SDDS",
+      "type": "simulation",
+      "arguments": [
+        {
+          "numberofSimulations": 100,
+          "numberofTimeSteps": 20,
+          "initialState": [1, 0, 1],
+          "propensities": [
+            {
+              "id": "x1", 
+              "activation": 0.5,
+              "degradation": 0.5
+            },
+            {
+              "id": "x2",
+              "activation": 0.5,
+              "degradation": 0.5
+            },
+            {
+              "id": "x3",
+              "activation": 0.5,
+              "degradation": 0.5
+            }
+            ]
+          }
+          ]
+        },
+      "input": [
+        {
+          "type": "model",
+          "description": "input for each variable can be polynomial function or transition table",
+          "fieldCardinality": 2,
+          "numberVariables": 3,
+          "variables": [
+            {
+              "name": "variable1",
+              "id": "x1",
+              "states": ["0", "1"]
+            },
+            {
+              "name": "variable2",
+              "id": "x2",
+              "states": ["0", "1"]
+            },
+            {
+              "name": "variable3",
+              "id": "x3",
+              "states": ["0", "1"]
+            }
+          ],
+          "updateRules": [
+            {
+              "functions": [
+                {
+                  "inputVariables": ["x1","x2"],
+                  "polynomialFunction": "x1*x2",
+	          "transitionTable": [
+                    [[0,0],0],   
+	            [[0,1],0],
+                    [[1,0],0],
+                    [[1,1],1]
+                  ]
+                }
+              ],
+              "target": "x1"
+            },
+            {
+            "functions": [
+              {
+                "inputVariables": ["x1"],
+                "polynomialFunction": "x1+1",
+                "transitionTable": [
+                  [[0],1],   
+	          [[1],0]
+                ]
+              }
+            ],
+            "target": "x2"
+          },
+          {
+            "functions": [
+              {
+                "inputVariables": ["x1","x2","x3"],
+                "polynomialFunction": "x1+x2+x3",
+                "transitionTable": [
+                  [[0,0,0],0],   
+	          [[0,0,1],1],
+                  [[0,1,0],1],
+                  [[0,1,1],0],
+                  [[1,0,0],1],   
+	          [[1,0,1],0],
+                  [[1,1,0],0],
+                  [[1,1,1],1]
+                ]
+              }
+            ],
+            "target": "x3"
+          }
+        ]
+      }
+    ]
+  }
+}
