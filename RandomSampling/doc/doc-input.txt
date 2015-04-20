@@ -1,0 +1,18 @@
+********************************************************************************
+Name: Documentation for  JSON input for Random Sampling
+Author: Seda Arat
+Date: February 18, 2015
+********************************************************************************
+RandomSampling needs a model as an input which includes the following information: fieldCardinality, numberVariables, variables and updateRules.
+
+RandomSampling is a sampling method to estimate the basin of attractors for large systems with only one argument, samplingSize.
+
+“task”: sampling the initial states randomly
+
+“method”: RandomSampling picks an initial state randomly and finds at which attractor it ends up. It records all the intermediate states as well in order to not to compute the attractor of the intermediate states in case any of the intermediate states are picked as an initial state later on. This decreases the program’s running time a bit. This process, picking an initial state randomly, is repeated depending upon the specified samplingSize. 
+
+“id”: RandomSampling
+
+“arguments”: samplingSize is a positive number.
+
+

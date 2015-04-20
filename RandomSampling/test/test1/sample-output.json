@@ -1,0 +1,17 @@
+{
+   "output":[
+      {
+         "basinOfAttraction”:[
+            {
+               "attractor":"0 1 0 -> 0 1 1",
+               "size":8
+            }
+         ],
+         "fieldCardinality":2,
+         "numberVariables":3,
+         "samplingSize":10,
+         "stateSpaceSize":8,
+         "type":"randomSamplingOutput"
+      }
+   ]
+}

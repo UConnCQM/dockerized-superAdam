@@ -1,0 +1,13 @@
+********************************************************************************
+Name: Documentation for  JSON output for Random Sampling
+Author: Seda Arat
+Date: February 18, 2015
+********************************************************************************
+
+RandomSampling returns an output file containing a basin of attraction of the system. Attractors and their sizes (the number of states ending up at that attractor) are provided. An attractor can be a fixed point (steady state) or a limit cycle with some length.
+
+The output file also includes some information in the input file in case we need them for debugging or using this sampling results in another program such as fieldCardinality, numberVariables, samplingSize and stateSpaceSize.
+
+“type”: randomSamplingOutput
+
+

@@ -1,0 +1,6 @@
+********************************************************************************
+Name: Documentation for RandomSampling
+Author: Seda Arat
+Date: February 18, 2015
+********************************************************************************
+RandomSampling module computes the basin of attraction for large systems using random sampling.
