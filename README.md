@@ -1,2 +1,1 @@
-# dockerized-superAdam
-A version of superAdam leveraging docker containers
+# A dockerized version of superAdam

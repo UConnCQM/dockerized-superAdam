@@ -1,0 +1,13 @@
+react:
+  build: REACT
+  ports:
+    - "32321:8765"
+  links:
+    - sdds
+  environment:
+    - VALIDATE_INPUT="return true\n"
+    - OUTPUT_TO=[{"target"=>"http://sdds:8765/do/run","condition"=>"return true"}]
+sdds:
+  image: thibauld/sdds
+  ports:
+    - "32322:8765"
