@@ -1,0 +1,69 @@
+------------ Step number:  1 -------------
+... removing following terminal vertices  : 
+... removing vertices with one input  : 
+3 ... constant nodes: 
+5 ... constant nodes: 
+6 ... constant nodes: 
+7 ... constant nodes: 
+14 ... constant nodes: 
+16 ... constant nodes: 
+19 ... constant nodes: 
+21 ... constant nodes: 
+... finding constant nodes : 
+... removing constant nodes   : 
+2    Constant nodes generated: 
+8    Constant nodes generated: 9 
+10    Constant nodes generated: 11 
+23    Constant nodes generated: 
+... Removing nodes with only positive outputs ... 
+4  Constant nodes generated: 
+12  Constant nodes generated: 
+17  Constant nodes generated: 
+18  Constant nodes generated: 
+25  Constant nodes generated: 
+28  Constant nodes generated: 
+... removing edges ... 
+(13,24)
+------------ Step number:  2 -------------
+... removing following terminal vertices  : 
+13
+... removing vertices with one input  : 
+24 ... constant nodes: 
+... finding constant nodes : 
+... removing constant nodes   : 
+9    Constant nodes generated: 20 
+11    Constant nodes generated: 
+... Removing nodes with only positive outputs ... 
+... removing edges ... 
+------------ Step number:  3 -------------
+... removing following terminal vertices  : 
+... removing vertices with one input  : 
+... finding constant nodes : 
+... removing constant nodes   : 
+20    Constant nodes generated: 
+... Removing nodes with only positive outputs ... 
+... removing edges ... 
+------------ Step number:  4 -------------
+... removing following terminal vertices  : 
+... removing vertices with one input  : 
+26 ... constant nodes:  15
+... finding constant nodes : 
+... removing constant nodes   : 
+15    Constant nodes generated: 
+... Removing nodes with only positive outputs ... 
+... removing edges ... 
+------------ Step number:  5 -------------
+... removing following terminal vertices  : 
+... removing vertices with one input  : 
+27 ... constant nodes: 
+... finding constant nodes : 
+... removing constant nodes   : 
+... Removing nodes with only positive outputs ... 
+... removing edges ... 
+------------ Step number:  6 -------------
+... removing following terminal vertices  : 
+... removing vertices with one input  : 
+... finding constant nodes : 
+... removing constant nodes   : 
+... Removing nodes with only positive outputs ... 
+... removing edges ... 

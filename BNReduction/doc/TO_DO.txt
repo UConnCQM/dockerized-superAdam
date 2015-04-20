@@ -1,0 +1,73 @@
+1. Write code to go from JSON format to the format accepted by BNReduction.sh
+2. Write code to go from the format returned by BNReduction.sh to JSON format
+
+Example of step 1.
+The model from the file sample-input.json is
+
+f1 = k1 & x3
+f2 = x1 | k2
+f3 = x2 & !x4
+f4 = x2 & k2
+
+where k1, k2 are parameters with values (given in arguments)
+
+k1 = 1
+k2 = 0
+
+The code has to take this information and construct the model
+
+f1 = x5 & x3
+f2 = x1 | x6
+f3 = x2 & !x4
+f4 = x2 & x6
+f5 = 1
+f6 = 0
+
+That is, the algorithm has to replace k1 by x5 and k2 by x6 (we already have 4 variables), and use the parameter values as constant functions. The output of the code has to be sample-input_BNreduction.txt:
+
+x5 & x3
+x1 | x6
+x2 & !x4
+x2 & x6
+1
+0
+
+Note that the order of functions is important.
+
+Example of step 2.
+A file of the form sample-input_BNreduction.txt is accepted by BNReduction.sh and will return sample-output_BNreduction.txt given by
+
+000010
+111010
+
+This means that the model has 2 steady states, the position of the binary values denote the order. For example, the second line means that one steady state has values x1=1, x2=1, x3=1, x4=0, x5=1, x6=0.
+
+The code has to construct the information below
+
+                "steadystates": [
+                    {
+			"parameters": [
+			{
+			"id": "k1",
+			"value": 1
+			},
+			{
+			"id": "k2",
+			"value": 0
+			}
+			],
+                        "idorder": ["x1","x2","x3","x4"],
+			"value": [
+				[0,0,0,0],
+				[1,1,1,0]
+				]
+                    }
+                ]
+
+Note that the value of the parameters (k1=x5, k2=x6) are put separately from the value of the original variables.
+
+The structure above then has to be appended to the model, resulting in the file sample-output.json
+
+
+
+

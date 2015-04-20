@@ -1,0 +1,62 @@
+# Test cases.
+#
+# Format: EXPRESSION[==DNF_EXPRESSION]
+# If == and right side are omitted, the EXPRESSION is assumed
+# to be already in DNF.
+# Lines starting with '#' are ignored.
+# Blank lines are ignored.
+# No blanks in expressions.
+# OR  operator: |
+# AND operator: &
+# NOT operator: !
+# Parentheses are allowed.
+# Single letter, case sensitive variables names.
+
+a
+!a
+a|a == a
+a|!a
+!a|a
+a&a == a
+a|b
+!a|!b
+a|!b
+!a|b
+a&b
+!a&!b
+a&!b
+!a&b
+a&a&a
+a&!a
+a&!a|b&!b == a&!a
+!a&!a&!a
+a&b&a
+!a&!b&!a
+!a&b&!a
+a|a|a == a
+!a|a|a == a|!a
+!a|!a|a == a|!a
+!a|!a|!a == !a
+a|!a|!a == a|!a
+a|a|!a == a|!a
+!a|a|!a == a|!a
+!(a|b) == !a&!b
+!(a&b) == !a|!b
+a&(b|c) == a&b|a&c
+(a|b)&(c&d) == a&c&d|b&c&d
+(a|b)&c&d == d&c&a|d&c&b
+(a|b)&!c == a&!c|b&!c
+(a|b)&!(c&d) == a&!c|a&!d|b&!c|b&!d
+(a|b)&(c|d) == a&c|a&d|b&c|b&d
+a&b&(c|d) == a&b&c|a&b&d
+a|b&(c|d&(e|f&g&(h|i))) == a|b&c|b&d&e|b&d&h&f&g|b&d&i&f&g
+a&(b|c&(d|(e&(f|g|(h&i))))) == a&b|a&c&d|a&c&e&h&i|a&c&e&f|a&c&e&g
+a&(b|c&(d|(e&(f|g|(h&i)|j)))) == a&b|a&c&d|a&c&e&j|a&c&e&h&i|a&c&e&f|a&c&e&g
+a&(b|c&(d|(e&(f|g|(h&i))|j))) == a&b|a&c&d|a&c&j|a&c&e&h&i|a&c&e&f|a&c&e&g
+(a|b)&(c|d)&(e|f) == e&a&c|e&a&d|f&a&c|f&a&d|e&b&c|e&b&d|f&b&c|f&b&d
+(a|b)&(c|d)&(e|f)&(g|h) == g&e&a&c|g&e&a&d|g&f&a&c|g&f&a&d|h&e&a&c|h&e&a&d|h&f&a&c|h&f&a&d|g&e&b&c|g&e&b&d|g&f&b&c|g&f&b&d|h&e&b&c|h&e&b&d|h&f&b&c|h&f&b&d
+!(a|b)&!(c|d)&!(e|f)&!(g|h) == !a&!b&!c&!d&!e&!f&!g&!h
+!(a|b)&!(c|d)&(e|f)&!(g|h) == !g&!h&e&!a&!b&!c&!d|!g&!h&f&!a&!b&!c&!d
+!(!(a&m)) == a&m
+(!a|b|c)&(a|b|!c) == a&b|a&c|b|b&!c|c&b|b&!a|!c&!a
+!(a&(a|d)&(c|a)&(c|d)|(a&e)) == !e&!a&!c&!d|!e&!a&!d&!c|!e&!c&!a&!d|!e&!c&!d&!a|!a&!c&!d|!a&!d&!c|!e&!a&!c|!e&!a&!d|!e&!c&!a|!e&!c&!d|!a&!c|!a&!d|!e&!a|!a

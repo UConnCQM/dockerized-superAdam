@@ -1,0 +1,73 @@
+============================
+Brief description
+===========================
+
+"NetReduction" is a program that reduces an AND-NOT boolean network
+For detailed description of the methods and reduction
+algorithms please refer to:
+
+A. Veliz-Cuba and R. Laubenbacher. Reduction of Boolean models 
+through AND-NOT logic representation.
+
+==================================================================
+Authors: Boris Aguilar, Alan Veliz-Cuba
+
+==================================================================
+License: Free for any academic/educational/any other non-profit use.
+In which case you can do whatever you want with this code. No
+restrictions of any kind, explicit or implied.
+
+For commercial purposes ... 
+==================================================================
+
+Contact:  baguilar@cs.vt.edu
+          aveliz-cuba2@unl.edu
+
+==================================================================
+System Requirements
+==================================================================
+
+   -- technically any Unix system
+   -- gcc and g++ compilers 
+   -- make
+   -- Boost Graph Library
+
+============
+Installation 
+============
+
+- Install Boost Library. 
+- g++ -O3 -I $BOOST NetReduction.cpp -o NetReduction 
+  where $BOOST is the directory in which the Boost files are located
+  for example in my case $BOOST = /home/boris/TOOLS/boost_1_49_0 
+
+=================
+Details of usage
+=================
+
+The Boolean network should be specified in a file
+with the following formats
+
+first line : number of nodes, second Line : number of edges
+The rest of the lines should specify the edges, one edge per line
+Edges are specified by three columns
+the first is the source node, the second column is the target node 
+and the third column is the sign of the edge
+
+See the file adjmatrix.txt for an example.
+
+To reduce your network use the following pattern 
+
+./NetReduction -i inputfile  -o outpufile 
+
+Example:
+
+./NetReduction -i adjmatrix.txt -o reduced.txt
+
+the reduced matrix will be printed in reduced.txt
+
+
+
+
+
+

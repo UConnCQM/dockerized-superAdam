@@ -1,0 +1,5 @@
+- Make the program read nodes with any kind of names 
+  (not only consecutive numbers from 1 to N)
+- Strongly connected components 
+- Branch-first algorith to remove constant nodes
+- Graphical Interface

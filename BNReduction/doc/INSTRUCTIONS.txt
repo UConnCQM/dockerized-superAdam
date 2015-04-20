@@ -1,0 +1,30 @@
+Requirements:
+1. Install Macaulay2 (http://www.math.uiuc.edu/Macaulay2/)
+2. Download Boost Library 1.55.0 (http://www.boost.org/doc/libs/)
+NOTE: If you want to use a different version of the Boost Library, you will have to edit the file NetReductionBoost/Makefile accordingly (Step 3 in Compiling)
+3. Download BNReduction.zip
+4. Have gcc, g++, perl, bash
+
+Compiling:
+1. Unzip BNReduction.zip
+2. Move the Boost Library folder to the BNReduction folder
+3. Make sure the contents of the file NetReductionBoost/Makefile and your version of the Boost Library match (only necessary if using a different version of Boost Library).
+4. Go to BNReduction
+5. make clean
+6. make install
+7. ./Testing_BNReduction.sh (this is used to check that everything is working)
+
+Usage:  
+./BNReduction.sh inputfile
+The file with steady states will be generated into inputfile.fp (if it has no lines, that means there are no fixed points)
+NOTE: The input file must be a file where each line has a Boolean function for each variable. E.g., the following is a Boolean network in 4 variables:
+x1 & x2
+0
+!x2 | x4
+1
+The variables must range from x1 to xn. The folder Examples has some examples of Boolean networks in the necessary format.
+
+
+
+
+

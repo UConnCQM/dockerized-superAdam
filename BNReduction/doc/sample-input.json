@@ -1,0 +1,92 @@
+{
+    "task": {
+        "method": {
+            "type": "steady state computation",
+            "id": "BNReduction",
+            "description": "Computes steady states usign reduction and Groebner basis. Model must be Boolean.",
+		"arguments": [
+		{
+		"id": "k1",
+		"value": 1
+		},
+		{
+		"id": "k2",
+		"value": 0
+		}
+		]
+	},
+        "input": [
+            {
+                "type": "model",
+                "description": "Sample model",
+		"parameters": [
+		    {
+		    "id": "k1",
+		    "states": [0,1]
+		    },
+		    {
+		    "id": "k2",
+		    "states": [0,1]
+		    }
+		  ],
+                "updateRules": [
+                    {
+                        "target": "x1",
+                        "functions": [
+                            {
+				"inputVariables": ["k1","x3"],
+                                "booleanFunction": "k1 & x3"
+                            }
+                        ]
+                    },
+                    {
+                        "target": "x2",
+                        "functions": [
+                            {
+				"inputVariables": ["x1" , "k2"],
+                                "booleanFunction": "x1 | k2"
+                            }
+                        ]
+                    },
+                    {
+                        "target": "x3",
+                        "functions": [
+                            {
+				"inputVariables": ["x4","x2"],
+                                "booleanFunction": "x2 & !x4"
+                            }
+                        ]
+                    },
+                    {
+                        "target": "x4",
+                        "functions": [
+                            {
+				"inputVariables": ["x2","k2"],
+                                "booleanFunction": "x2 & k2"
+                            }
+                        ]
+                    }
+                ],
+
+                "variables": [
+                    {
+                        "id": "x1",
+			"states": [0,1]
+                    },
+                    {
+                        "id": "x2",
+			"states": [0,1]
+                    },
+                    {
+                        "id": "x3",
+			"states": [0,1]
+                    },
+                    {
+                        "id": "x4",
+			"states": [0,1]
+                    }
+                ]
+            }
+        ]
+    }
+}

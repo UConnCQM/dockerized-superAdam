@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+aclocal -I macros -I /usr/share/aclocal $ACLOCAL_FLAGS
+libtoolize --automake --force --copy
+
+# libtoolize must be called before automake because it creates
+# ltmain.sh, which automake needs.
+
+automake --add-missing --copy
+autoconf

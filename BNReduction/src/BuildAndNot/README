@@ -1,0 +1,65 @@
+
+DESCRIPTION
+----------
+
+BuildAndNot is a small program to transform a 
+general boolean network to and AND-NOT network.
+
+INPUTS
+------
+A file with the boolean functions, see "network.dat"
+as an example. we use "|", "&", and "!" for 
+OR, AND, NOT respectively.
+
+A variable identifier should
+always follow after "!". So that functions
+like !(x1|x2) are not allowed.
+
+All the variables should start with "x" and 
+then an identifier number is needed, for example
+"x2" is the variable of the second node. The code uses
+this notation otherwise the output will not make any sense.
+
+If the network has "n" nodes only identifiers from 1 to n
+are expected. This is because the algorithm creates new
+variables and uses identifiers starting at n+1.
+
+
+
+OUTPUT
+------
+The functions of the AND-NOT network will be
+displayed in the screen.
+
+si is a variable that is the the opposite of xi
+si = !xi
+
+
+AUTHOR
+------
+Boris Aguilar boaguilar@gmail.com
+
+
+INSTALLATION
+-------------
+Enter the subdirectory boolstuff-0.1.13/
+and then install 'boolstuff' library, that is:
+
+1) type 
+  make distclean
+and then:
+ ./configure
+
+2) type
+  make
+
+Then go to the BuildAndNot directory and type
+./make
+
+
+USAGE
+-----
+
+./BuildAndNot network.dat 
+
+

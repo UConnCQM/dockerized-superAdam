@@ -1,0 +1,66 @@
+.\" $Id: booldnf.1,v 1.10 2010/02/14 19:38:12 sarrazip Exp $
+.\" booldnf - Program to convert a boolean expression to the DNF
+.\" boolstuff - Disjunctive Normal Form boolean expression library
+.\" Copyright (C) 2002--2010 Pierre Sarrazin <http://sarrazip.com/>
+.\"
+.\" This program is free software; you can redistribute it and/or
+.\" modify it under the terms of the GNU General Public License
+.\" as published by the Free Software Foundation; either version 2
+.\" of the License, or (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+.\" 02111-1307, USA.
+.\"
+.\"
+.TH booldnf "1" "February 14th, 2010" "" ""
+.SH NAME
+booldnf - converts a boolean expression to the DNF
+.SH SYNOPSIS
+.B echo 'a&(!b|c&!d)' | booldnf > result.txt
+.SH DESCRIPTION
+.PP
+\fBbooldnf\fR
+is a program that reads boolean expressions from its standard input
+and rewrites them in
+\fBDisjunctive Normal Form\fR
+on its standard output.
+It uses the BoolStuff library.
+.PP
+The Disjunctive Normal Form is an ORing of ANDed terms.
+In other words, if the OR is considered an additive operation and
+the AND a multiplicative operation, then the DNF is a sum of products.
+.PP
+Each expression must be on its own text line.  Variable names
+must be composed only of ASCII letters and digits.
+.PP
+The AND operator is \fB&\fR,
+the OR operator is \fB|\fR,
+and
+the NOT operator is \fB!\fR.
+Parentheses are allowed.
+.PP
+The command flushes its output buffer after each result or error message,
+to make sure that it can be used with bidirectional pipes.
+Results and error messages always take exactly one text line.
+.SH EXAMPLES
+The command
+.IP
+.B echo 'a&(!b|c&!d)' | booldnf
+.PP
+should display
+.IP
+.B a&c&!d|a&!b
+.SH LICENSE
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License.  This program has absolutely no warranty.
+.SH AUTHOR
+See the boolstuff(3) manual page.
+.SH BUGS
+See the boolstuff(3) manual page.

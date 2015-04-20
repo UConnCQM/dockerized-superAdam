@@ -1,0 +1,25 @@
+==================================================================
+
+Contact:  baguilar@cs.vt.edu
+          aveliz-cuba2@unl.edu
+
+
+============
+Installation 
+============
+
+  g++ -O3 FixedPoints.cpp -o FixedPoints
+
+=================
+Details of usage
+=================
+
+
+./NetReduction -i adjmatrix.txt -o reduced.txt
+
+
+
+
+
+
+

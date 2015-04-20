@@ -1,0 +1,92 @@
+Version 0.1.13 - 2010-02-14
+
+    Terms of DNF now sorted to eliminate duplicates.
+    Fixed g++ 4.4.0 compilation errors.
+
+Version 0.1.12 - 2008-10-13
+
+    Fixed memory leaks.
+    Fixed wrong result for "a&!a".
+    BoolExprParser::Error::STRING_EXPECTED enumerated name renamed to
+    IDENTIFIER_EXPECTED.
+    Compilation fixes for gcc 4.3.
+    AM_PROG_CC_C_O now used in configure.ac to avoid this warning:
+	compiling `checkc.c' with per-target flags requires
+	`AM_PROG_CC_C_O' in `configure.ac'
+
+Version 0.1.11 - 2007-04-29
+
+    Example programs are not installed anymore.
+
+Version 0.1.10 - 2006-02-04
+
+    DNF algorithm now detects cases where resulting expression tree
+    would be too large (maximum number of tree nodes set to 10000).
+    booldnf command now returns EXIT_FAILURE if one of the
+    requested conversions fail.
+
+Version 0.1.9 - 2005-05-08
+
+    Fixed bug with input expression "!(!(a&m))".
+    Removed support for quoted variable names in expression parser,
+    to avoid having the BoolExpr<T> template depend on T being std::string.
+    Fixes for problems when compiling with g++ 3.4.
+    Documentation updated slightly and converted to Doxygen format.
+
+Version 0.1.8 - 2003-03-18
+
+    New booldnf command that converts expressions to the DNF.
+    New Perl example in the `examples' subdirectory that uses this
+    command with a bidirectional pipe.
+
+Version 0.1.7 - 2003-03-11
+
+    Method BoolExpr<T>::getTreeVariables() now wrapped in the C API
+    by function boolstuff_get_tree_variables() and its companion
+    boolstuff_free_variables_sets().  The checkc.c testing program
+    has been updated accordingly.  It also builds a more complex
+    expression to illustrate this addition.
+
+Version 0.1.6 - 2002-12-13
+
+    isDNFTermUseful() deleted.  The DNF is now automatically simplified
+    to eliminate useless (always false) terms.  Some cases were deleted
+    from test-cases.txt (e.g., a&!a) because they were returned as
+    false statements.
+
+    Better example program in the examples subdirectory.
+
+Version 0.1.5 - 2002-12-12
+
+    Fixes for g++ 3.2 compilation problems related to the C++
+    std namespace.
+
+Version 0.1.4 - 2002-12-12
+
+    New methods to get the roots of the trees of the DNF terms
+    and to determine if some DNF terms are useless (always false).
+    New public methods to change the properties of an existing node.
+    RPM .spec.in file fixed to disable dependency tracking, which allows
+    compilation with g++ 2.95.3.
+    Documentation slightly improved.
+
+Version 0.1.3 - 2002-11-12
+
+    Better way of linking the C test program with BoolStuff and libstdc++.
+    Also, -lstdc++ not needed for g++ 3.0 after all...
+    See <src/boolstuff/Makefile.am>.
+
+Version 0.1.2 - 2002-11-08
+
+    Linking problem solved for g++ 3.0.
+
+Version 0.1.1 - 2002-11-07
+
+    Compilation problems fixed for g++ 3.2.
+
+Version 0.1.0 - 2002-11-06
+
+    First public release.
+    Versions 0.1.x will have an unstable API.
+    Versions 1.0.x will have a stable API.
+

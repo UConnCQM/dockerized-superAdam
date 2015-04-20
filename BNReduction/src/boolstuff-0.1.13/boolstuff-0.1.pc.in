@@ -1,0 +1,12 @@
+# .pc file for the pkg-config script.
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@/@PACKAGE@-@API@
+
+Name: @PACKAGE_FULL_NAME@
+Description: @PACKAGE_SUMMARY_EN@
+Version: @VERSION@
+Libs: -L${libdir} -l@PACKAGE@-@API@
+Cflags: -I${includedir}
