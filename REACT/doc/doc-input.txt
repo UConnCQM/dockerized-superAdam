@@ -1,0 +1,13 @@
+*********************************************************************************
+* DOCUMENTATION FOR JSON INPUT IN REACT						*
+* Written by: Paola Vera-Licona							*
+* Date: 10/23/2014								*
+*********************************************************************************
+
+
+JSON format input file: “Task”: to describe the task in hand, we consider three sub-hashtables: “type”, “input” and “method”“type”: this is the type of problem we are addressing. In this case is "reverseEngineering"“input”: here we introduce the general input data that any PDS reverse engineering problem will need, namely: Number of variables, Characteristic of polynomial ring and the list of input time series:It starts with one field that allow us to introduce comments regarding the file. The first field is  “description” to describe the file.The input time series data indicated as “timeSeriesData”.“timeSeries” it is organized as an array of time series data. Each one of the time series is described as object “matrix”.Each one of the “matrix” objects -that describe an experiment-, we specify: The actual time series data. This is represented as a matrix were columns represent the variables  and rows are the ordered time steps.“Name” which refers to the name designated to that experiment“index” this used for Knockout data to specify which variable is knocked out. For example if the 3rd variable is knocked out, then we write the as “index”: [3]. Notice that we can have in one experiment more than one variable knocked out . For example, if variables 4 and 5 are knocked out, then we describe such KO experiment as “index”: [4,5]. When we refer to wildtype data, we simply write an empty“index”: [].“method”: here is were we describe the EA"id": "REACT"
+"description": "this is the reverse engineering method that uses an evolutionary algorithm as optimization method”
+“arguments”: this is a string of parameters [“argument1"," argument2”]. Most of the arguments in REACT are numbers, except for the last argument, which is optional: “priorBiologicalNetwork” which s a matrix representing the adjacency matrix obtained from prior biological knowledge about the system.
+
+“model”: this is the object to describe either the structure of the network (as a directed graph or as a weighted directed graph) or a polynomial dynamical system. 
+One of the first keys of the object “model” is “updateRules”, which represents a polynomial model that will seed the EA population. To be consistent with the JSON standard format for the reverse engineering module,  it will be represented as an array of hash tables, where each hash table will describe each polynomial function.

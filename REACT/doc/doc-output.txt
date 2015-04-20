@@ -1,0 +1,10 @@
+*********************************************************************************
+* DOCUMENTATION FOR JSON OUTPUT IN REACT					*
+* Written by: Paola Vera-Licona							*
+* Date: 10/23/2014								*
+*********************************************************************************
+
+
+JSON format output file: object model, representing a set of polynomial dynamical systems that obtained the best scores in REACT.
+
+In this model object we include the score for each one of the polynomial update rules as well as the score of each one of the edges of the inferred static graph.

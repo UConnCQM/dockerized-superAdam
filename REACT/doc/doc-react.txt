@@ -1,0 +1,27 @@
+
+*********************************************************************************
+* DOCUMENTATION FOR REACT						        *
+* Written by: Paola Vera-Licona							*
+* Date: 10/23/2014								*
+*********************************************************************************
+
+
+INPUT:
+
+Mandatory:
+(1) Time series data containing at list one data set of type wild type (represented as index [] in the time series format). Notice also that for REACT it’s not a problem to have inconsistencies in the data.
+(2) Values assigned to the REACT arguments that have a numerical value.
+
+Optional:
+(1) Knockout data. Notice that REACT is programmed to handle only single-knockout data sets.
+(2) priorBiologicalNetwork: Prior knowledge from biology about the structure of the network (or wiring diagram). This corresponds to the last argument in REACT and is represented as an adjacency matrix where $a_ij$ represents the probability assigned to the believe that there is an edge from $x_j$ to $x_i$. If there is not certainty about whether an edge between two nodes should or not exist, we assign probability 0.50. Notice that if we have input a priorBiologicalNetwork in the sets of REACT arguments, we should also assign a weight to this information within the REACT argument called “BioProbWeight”.
+(3) priorReverseEngineeringNetwork: Prior knowledge about the structure of the network (or wiring diagram) from previously applying another reverse engineering method (such as MinSets or BasicReveng). Notice that this prior knowledge is separately enter from the priorBiologicalNetwork. The priorReverseEngineeringNetwork is represented as a “model” object, where we describe target and source nodes together with variable scores where scores of source node $x_j$ to target node $x_i$ represent the probability that an edge from $x_j$ to $x_i$ exists.
+(4) priorModel: this is a set of polynomial dynamical systems (PDSs) that we can use as seed to the REACT method. Typically these PDSs are obtained from previously applying other reverse engineering methods such as BasicReveng or gfan. The prioModel is represented as a “model” object containing  the update rules. There is no need to introduce any kind of score in this case.
+
+
+
+
+OUTPUT:
+
+A set of polynomial dynamical systems that obtained the best scores in REACT, together with the scores to each one of the polynomial update rules and to the variables in the static network.
+

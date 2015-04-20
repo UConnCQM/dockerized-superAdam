@@ -1,0 +1,64 @@
+{
+  "task": {
+      "method": {
+          "arguments": [
+              { "name": "HammingPolyWeight", "value": 0.3 },
+              { "name": "ComplexityWeight", "value": 0.2 },
+              { "name": "RevEngWeight", "value": 0 },
+              { "name": "BioProbWeight", "value": 0 },
+              { "name": "HammingModelWeight", "value": 0.35 },
+              { "name": "PolyScoreWeight", "value": 0.65 },
+              { "name": "GenePoolSize", "value": 100 },
+              { "name": "NumCandidates", "value": 55 },
+              { "name": "NumParentsToPreserve", "value": 5 },
+              { "name": "MaxGenerations", "value": 100 },
+              { "name": "StableGenerationLimit", "value": 355 },
+              { "name": "MutateProbability", "value": 0.755 }
+            ],
+          "description": "this is the reverse engineering method that uses an evolutionary algorithm as optimization method",
+          "id": "REACT",
+          "type": "reverseEngineering"
+        },
+      "input": [
+          {
+            "timeSeriesData": [
+                {
+                  "index": [],
+                  "matrix": [
+                      [0,0,1,1,1,1,1,1],
+                      [0,1,0,0,1,1,1,1],
+                      [1,1,0,1,0,1,1,1],
+                      [0,1,1,0,0,1,1,0],
+                      [1,1,1,0,0,1,1,0],
+                      [0,1,1,0,0,1,1,1],
+                      [1,1,1,1,0,1,1,1],
+                      [0,1,0,0,0,1,1,0],
+                      [1,1,0,0,0,1,1,0],
+                      [0,1,0,0,0,1,1,1],
+                      [1,1,0,1,0,1,1,1]
+                    ],
+                  "name": "wildtype experiment 1"
+                },
+                {
+                  "index": [],
+                  "matrix": [
+                      [0,0,1,1,1,1,0,1],
+                      [0,1,0,0,1,1,0,1],
+                      [1,1,0,1,0,1,0,1],
+                      [0,1,1,0,0,1,0,0],
+                      [1,1,1,0,0,1,0,0],
+                      [0,1,1,0,0,1,0,1],
+                      [1,1,1,1,0,1,0,1],
+                      [0,1,0,0,0,1,0,0],
+                      [1,1,0,0,0,1,0,0],
+                      [0,1,0,0,0,1,0,1],
+                      [1,1,0,1,0,1,0,1]
+                    ],
+                  "name": "wildtype experiment 2"
+                }
+              ],
+            "type": "timeSeries"
+          }
+        ]
+    }
+}
