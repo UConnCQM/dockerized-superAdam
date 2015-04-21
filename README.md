@@ -6,13 +6,13 @@ The project is still under heavy development at this stage
 
 ## Overview of the project
 
-dockerized-superAdam is an attempt to make a collection of independent software modules and algorithms work together in a decentralized yet simple manner using [Docker containers](https://github.com/docker) and [Docker compose](http://docs.docker.com/compose/).
+dockerized-superAdam is an attempt to make a collection of independent software modules and algorithms work together in a decentralized, yet simple manner, using [Docker containers](https://github.com/docker) and [Docker compose](http://docs.docker.com/compose/).
 
-The objective is to be able to create a workflow for data computation (based on the different software modules) that could be used by a 3rd party program.
+The objective is to be able to create a workflow for mathematical modeling and simulation using polynomial dynamical systems framework (based on the different software modules) that could be used by a 3rd party program.
 
 ### Context
 
-The software modules included in superAdam has been published independently and thus are very heterogeneous. They have been implemented using different programming languages, require different dependencies and have different I/O formats.
+The software modules included in superAdam have been published independently and thus are very heterogeneous. They have been implemented using different programming languages, require different dependencies and have different I/O formats.
 
 ### Architecture
 
